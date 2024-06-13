@@ -5,7 +5,20 @@ import heroBcg from '../assets/hero-bcg.jpeg'
 import heroBcg2 from '../assets/hero-bcg-2.jpeg'
 
 const Hero = () => {
-  return <h4>hero</h4>
+  return <Wrapper className='section-center'>
+    <article className='content'>
+        <h1>
+          design your <br/>
+          comport zone
+        </h1>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+        <Link to="/products" className='btn btn-hero'>Shop Now</Link>
+    </article>
+    <article className='img-container'>
+        <img src={heroBcg} alt='' className='main-img'/>
+        <img src={heroBcg2} alt='' className='accent-img'/>
+    </article>
+  </Wrapper>
 }
 
 const Wrapper = styled.section`

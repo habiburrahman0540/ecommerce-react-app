@@ -2,9 +2,21 @@ import React from 'react'
 import styled from 'styled-components'
 import { PageHero } from '../components'
 import aboutImg from '../assets/hero-bcg.jpeg'
-
+import { Link } from "react-router-dom";
 const AboutPage = () => {
-  return <h4>about page</h4>
+  return <main>
+    <PageHero title="about"/>
+    <Wrapper className='page section section-center'>
+        <img src={aboutImg} alt='Nice desk'/>
+        <article className=''>
+            <div className='title'>
+                <h2>Our Story</h2>
+                <div className='underline'></div>
+            </div>
+            <p>lorem</p>
+        </article>
+    </Wrapper>
+  </main>
 }
 
 const Wrapper = styled.section`

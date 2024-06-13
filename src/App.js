@@ -1,8 +1,6 @@
 
-import './App.css';
 import {
-  createBrowserRouter,
-  RouterProvider,
+  BrowserRouter,Routes,Route
 } from "react-router-dom";
 import {
   HomePage,
@@ -15,45 +13,23 @@ import {
   SingleProductPage
 } from "./pages"
 import { Navbar,Sidebar,Footer } from './components';
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <HomePage/>,
-  },
-  {
-    path: "/about",
-    element: <AboutPage/>,
-  },
-  {
-    path: "/cart",
-    element: <CartPage/>,
-  },
-  {
-    path: "/checkout",
-    element: <CheckoutPage/>,
-  },
-  {
-    path: "*",
-    element: <ErrorPage/>,
-  },
-  {
-    path: "/products/:id",
-    element: <SingleProductPage/>,
-  },
-  {
-    path: "/products",
-    element: <ProductsPage/>,
-  },
-]);
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
     <Navbar/>
     <Sidebar/>
-      <RouterProvider router={router} />
+     <Routes>
+        <Route  path= "/" element= {<HomePage/>}/>
+        <Route  path= "/about" element= {<AboutPage/>}/>
+        <Route  path= "/cart" element= {<CartPage/>}/>
+        <Route  path= "/checkout" element= {<CheckoutPage/>}/>
+        <Route  path= "*" element= {<ErrorPage/>}/>
+        <Route  path= "/products/:id" element= {<SingleProductPage/>}/>
+        <Route  path= "/products" element= {<ProductsPage/>}/>
+     </Routes>
     <Footer/>
-    </>
+    </BrowserRouter>
     
   );
 }
