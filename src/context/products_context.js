@@ -32,6 +32,14 @@ export const ProductsProvider = ({ children }) => {
     type:SIDEBAR_CLOSE
   })
  }
+ const fetchProducts = async(url)=>{
+      const response =await axios.get(url,{ crossdomain: true });
+      console.log(response)
+     
+ }
+ useEffect(()=>{
+    fetchProducts(url)
+ },[url]);
   return (
     <ProductsContext.Provider value={{...state,openSidebar,closeSidebar}}>
       {children}
