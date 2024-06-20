@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useReducer } from 'react'
+import React, { useEffect, useContext, useReducer,createContext } from 'react'
 import reducer from '../reducers/cart_reducer'
 import {
   ADD_TO_CART,
@@ -10,7 +10,7 @@ import {
 
 const initialState = {}
 
-const CartContext = React.createContext()
+const CartContext = createContext()
 
 export const CartProvider = ({ children }) => {
   return (
