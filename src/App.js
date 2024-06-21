@@ -8,7 +8,6 @@ import {
   CartPage,
   CheckoutPage,
   ErrorPage,
-  PrivateRoute,
   ProductsPage,
   SingleProductPage
 } from "./pages"
