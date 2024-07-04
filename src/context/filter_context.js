@@ -11,14 +11,26 @@ import {
   CLEAR_FILTERS,
 } from '../actions'
 import { useProductsContext } from './products_context'
+import { type } from '@testing-library/user-event/dist/type'
 
-const initialState = {}
+const initialState = {
+  filtered_products:[],
+  all_products:[]
+}
 
 const FilterContext = createContext()
 
 export const FilterProvider = ({ children }) => {
+  const [state,dispatch]=useReducer(reducer,initialState);
+  const {products}=useProductsContext();
+useEffect(()=>{
+  dispatch({
+    type:LOAD_PRODUCTS,
+    payload:products
+  })
+},[products])
   return (
-    <FilterContext.Provider value='filter context'>
+    <FilterContext.Provider value={{...state}}>
       {children}
     </FilterContext.Provider>
   )
