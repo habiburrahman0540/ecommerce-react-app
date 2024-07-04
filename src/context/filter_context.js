@@ -15,7 +15,8 @@ import { type } from '@testing-library/user-event/dist/type'
 
 const initialState = {
   filtered_products:[],
-  all_products:[]
+  all_products:[],
+  grid_view:false,
 }
 
 const FilterContext = createContext()
