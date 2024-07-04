@@ -29,9 +29,19 @@ useEffect(()=>{
     type:LOAD_PRODUCTS,
     payload:products
   })
-},[products])
+},[products]);
+const setGridViewButton = ()=>{
+  dispatch({
+    type:SET_GRIDVIEW
+  })
+}
+const setListViewButton = ()=>{
+  dispatch({
+    type:SET_LISTVIEW
+  })
+}
   return (
-    <FilterContext.Provider value={{...state}}>
+    <FilterContext.Provider value={{...state,setGridViewButton,setListViewButton}}>
       {children}
     </FilterContext.Provider>
   )
