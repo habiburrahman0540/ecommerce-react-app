@@ -7,14 +7,28 @@ import {
   CLEAR_CART,
   COUNT_CART_TOTALS,
 } from '../actions'
+import { type } from '@testing-library/user-event/dist/type'
+import { AddToCart } from '../components'
 
-const initialState = {}
+const initialState = {
+    cart:[],
+    total_items:0,
+    total_amount:0,
+    shipping_amount:535
+}
 
 const CartContext = createContext()
 
 export const CartProvider = ({ children }) => {
+  const [state,dispatch]= useReducer(reducer,initialState);
+  const addToCart = ({id,color,amount,product})=>{
+    dispatch({
+      type:ADD_TO_CART,
+      payload:{id,color,amount,product}
+    });
+  }
   return (
-    <CartContext.Provider value='cart context'>{children}</CartContext.Provider>
+    <CartContext.Provider value={{...state,addToCart}}>{children}</CartContext.Provider>
   )
 }
 // make sure use
